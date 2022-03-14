@@ -4,6 +4,7 @@ import com.hendisantika.entity.Student;
 import com.hendisantika.exception.StudentNotFoundException;
 import com.hendisantika.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,13 @@ public class StudentController {
         student.setEmail(newStd.getEmail());
         student.setPhone(newStd.getPhone());
         return studentservice.save(student);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public String deleteStudent(@PathVariable("id") @Min(1) Long id) {
+        Student std = studentservice.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Student with " + id + " is Not Found!"));
+        studentservice.deleteById(std.getId());
+        return "Student with ID :" + id + " is deleted";
     }
 }
