@@ -14,7 +14,7 @@ import java.util.Optional;
  * Date: 15/03/22
  * Time: 06.21
  */
-public interface StudentRepository extends JpaRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // Query method
     Optional<Student> findByEmail(String email);
