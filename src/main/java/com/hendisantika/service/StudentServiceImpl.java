@@ -40,4 +40,9 @@ public class StudentServiceImpl implements StudentService {
     public Optional<Student> findByEmail(String email) {
         return studentRepository.findByEmail(email);
     }
+
+    @Override
+    public Student save(Student std) {
+        return studentRepository.save(std);
+    }
 }
