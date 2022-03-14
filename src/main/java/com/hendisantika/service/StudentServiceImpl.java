@@ -35,4 +35,9 @@ public class StudentServiceImpl implements StudentService {
     public Optional<Student> findById(Long id) {
         return studentRepository.findById(id);
     }
+
+    @Override
+    public Optional<Student> findByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
 }
