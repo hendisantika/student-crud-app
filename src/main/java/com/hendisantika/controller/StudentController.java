@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,5 +50,16 @@ public class StudentController {
     @PostMapping
     public Student addStudent(@Valid @RequestBody Student std) {
         return studentservice.save(std);
+    }
+
+    @PutMapping(value = "/{id}")
+    public Student updateStudent(@PathVariable("id") @Min(1) Long id, @Valid @RequestBody Student newStd) {
+        Student student = studentservice.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Student with " + id + " is Not Found!"));
+        student.setFirstName(newStd.getFirstName());
+        student.setLastName(newStd.getLastName());
+        student.setEmail(newStd.getEmail());
+        student.setPhone(newStd.getPhone());
+        return studentservice.save(student);
     }
 }
