@@ -1,8 +1,11 @@
 package com.hendisantika.service;
 
+import com.hendisantika.entity.Student;
 import com.hendisantika.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,5 +25,8 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
 
-
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
 }
