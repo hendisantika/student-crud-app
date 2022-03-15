@@ -6,4 +6,10 @@
 2. Navigate to the folder: `cd student-crud-app`
 3. Change your MySQL Credentials with your own in application.properties
 4. Run the application: `mvn clean spring-boot:run`
-5. Import the POSTMAN Collection. 
+5. Import the POSTMAN Collection.
+
+### Image Screen shots
+
+Add New Student
+
+![Add New Student]
