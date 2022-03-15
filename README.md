@@ -55,3 +55,11 @@ Find Student by ID
 ```shell
 curl --location --request GET 'localhost:8080/api/students/1'
 ```
+
+Delete Student
+
+![Delete Student](img/delete.png "Delete Student")
+
+```shell
+curl --location --request DELETE 'localhost:8080/api/students/4'
+```
