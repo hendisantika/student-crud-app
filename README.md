@@ -12,4 +12,46 @@
 
 Add New Student
 
-![Add New Student]
+![Add New Student](img/add.png "Add New Student")
+
+```shell
+curl --location --request POST 'localhost:8080/api/students' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName" : "Uzumaki",
+    "lastName": "Naruto",
+    "email": "uzumaki_naruto@konohagakure.co.jp",
+    "phone": "+6281321411511"
+}'
+```
+
+Get All Students
+
+![Get All Students](img/list.png "Get All Students")
+
+```shell
+curl --location --request GET 'localhost:8080/api/students'
+```
+
+Update Student
+
+![Update Student](img/update.png "Update Student")
+
+```shell
+curl --location --request PUT 'localhost:8080/api/students/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName" : "Uzumaki",
+    "lastName": "Naruto Hokage",
+    "email": "uzumaki_naruto@konohagakure.co.jp",
+    "phone": "+6281321411511"
+}'
+```
+
+Find Student by ID
+
+![Find Student by ID](img/find.png "Find Student by ID")
+
+```shell
+curl --location --request GET 'localhost:8080/api/students/1'
+```
