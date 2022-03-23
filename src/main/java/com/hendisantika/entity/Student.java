@@ -28,15 +28,15 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "student")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotEmpty(message = "First name is required")
-    @Column(nullable = false, name = "firstName")
+    @Column(nullable = false, name = "first_Name")
     private String firstName;
 
     @NotEmpty(message = "Last name is required")
-    @Column(nullable = false, name = "lastName")
+    @Column(nullable = false, name = "last_name")
     private String lastName;
 
     @NotEmpty(message = "email is required")
@@ -46,4 +46,8 @@ public class Student {
     @NotEmpty(message = "Phone number is required")
     @Column(nullable = false, unique = true)
     private String phone;
+
+    @NotEmpty(message = "Jurusan is required")
+    @Column(nullable = false, unique = true)
+    private String jurusan;
 }
