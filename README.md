@@ -14,6 +14,8 @@ Add New Student
 
 ![Add New Student](img/add.png "Add New Student")
 
+![Tambah Data Mahasiswa](img/add.png "Tambah Data Mahasiswa")
+
 ```shell
 curl --location --request POST 'localhost:8080/api/students' \
 --header 'Content-Type: application/json' \
