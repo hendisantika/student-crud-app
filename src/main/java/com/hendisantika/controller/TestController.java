@@ -22,7 +22,7 @@ import javax.validation.Valid;
 public class TestController {
     @GetMapping("/test1")
     public String getForm(Student student) {
-        return "index";
+        return "index2";
     }
 
     @PostMapping("/save-student")
