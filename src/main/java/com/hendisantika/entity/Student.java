@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -52,6 +53,7 @@ public class Student {
     private LocalDate birthDate;
 
     @NotEmpty(message = "email is required")
+    @Email
     @Column(nullable = false, name = "email", unique = true)
     private String email;
 

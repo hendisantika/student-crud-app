@@ -28,7 +28,7 @@ public class TestController {
     @PostMapping("/save-student")
     public String submitStudentDetails(@Valid Student student, Errors errors, Model model) {
         if (null != errors && errors.getErrorCount() > 0) {
-            return "index";
+            return "index2";
         } else {
             model.addAttribute("successMsg", "Details saved successfully!!");
             return "success";
