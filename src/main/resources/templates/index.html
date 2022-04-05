@@ -23,6 +23,7 @@
         <tr>
             <th scope="col">Name Depan</th>
             <th scope="col">Name Belakang</th>
+            <th scope="col">Tanggal Lahir</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Jurusan</th>
@@ -33,6 +34,7 @@
         <tr th:each="s : ${student}">
             <td scope="col" th:text="${s.firstName}"></td>
             <td scope="col" th:text="${s.lastName}"></td>
+            <td scope="col" th:text="${s.birthDate}"></td>
             <td scope="col" th:text="${s.email}"></td>
             <td scope="col" th:text="${s.phone}"></td>
             <td scope="col" th:text="${s.jurusan}"></td>
