@@ -1,6 +1,8 @@
 package com.hendisantika.controller;
 
 import com.hendisantika.entity.Student;
+import com.hendisantika.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,6 +23,9 @@ import javax.validation.Valid;
  */
 @Controller
 public class TestController {
+    @Autowired
+    private StudentService studentService;
+
     @GetMapping("/test1")
     public String getForm(Student student) {
         return "index2";
@@ -33,5 +39,12 @@ public class TestController {
             model.addAttribute("successMsg", "Details saved successfully!!");
             return "success";
         }
+    }
+
+    @GetMapping("/test2")
+    public String getForm3(Model model) {
+        List<Student> students = studentService.getAllStudents();
+        model.addAttribute("students", students);
+        return "index3";
     }
 }
