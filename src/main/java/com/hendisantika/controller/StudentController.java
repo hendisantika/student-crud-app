@@ -3,6 +3,11 @@ package com.hendisantika.controller;
 import com.hendisantika.entity.Student;
 import com.hendisantika.exception.StudentNotFoundException;
 import com.hendisantika.service.StudentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +32,7 @@ import java.util.List;
  * Time: 06.31
  */
 @RestController
+@Tag(name = "Student", description = "Endpoints for managing Student")
 @RequestMapping("/api/students")
 public class StudentController {
     private final StudentService studentservice;
@@ -37,6 +43,23 @@ public class StudentController {
     }
 
     @GetMapping
+    @Operation(
+            summary = "List All Student",
+            description = "List All Student.",
+            tags = {"Student"})
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    description = "Success",
+                    responseCode = "200",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation =
+                            Student.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Not found", responseCode = "404",
+                    content = @Content),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Internal error", responseCode = "500"
+                    , content = @Content)
+    }
+    )
     public List<Student> getAllStudents() {
         return studentservice.getAllStudents();
     }
