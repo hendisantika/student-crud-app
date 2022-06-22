@@ -12,7 +12,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"firstName\" : \"Uzumaki\",\n    \"lastName\": \"Naruto\",\n    \"email\": \"uzumaki_naruto@konohagakure.co.jp\",\n    \"phone\": \"+6281321411511\"\n}",
+          "raw": "{\n    \"firstName\" : \"Uzumaki\",\n    \"lastName\": \"Naruto\",\n  \"birthDate\" : \"2002-12-09\",\n  \"email\": \"uzumaki_naruto@konohagakure.co.jp\",\n    \"phone\": \"+6281321411511\"\n}",
           "options": {
             "raw": {
               "language": "json"
