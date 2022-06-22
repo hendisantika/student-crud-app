@@ -59,7 +59,7 @@ public class Student {
 
     @NotEmpty(message = "Phone number is required")
     @NotNull(message = "Phone can not be null!!")
-    @Size(max = 13, min = 10, message = "Mobile number should be of 10 digits")
+    @Size(max = 14, min = 10, message = "Mobile number should be of 10 digits")
     @Column(nullable = false, unique = true)
     private String phone;
 
